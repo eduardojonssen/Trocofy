@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dlp.Framework, Version=0.1.6140.17779, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dlp.Framework.dll.1.0.3\lib\net45\Dlp.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,8 +60,12 @@
     <Compile Include="Processors\CoinProcessor.cs" />
     <Compile Include="Processors\ProcessorFactory.cs" />
     <Compile Include="Processors\SilverProcessor.cs" />
+    <Compile Include="Services\Logger.cs" />
     <Compile Include="TrocofyManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,11 +3,16 @@ using System.Linq;
 using System.Collections.Generic;
 using Trocofy.Core.DataContracts;
 using Trocofy.Core.Processors;
+using Trocofy.Core.Services;
+using Dlp.Framework;
 
 namespace Trocofy.Core {
     public class TrocofyManager {
         public ComputeChangeResponse ComputeChange(ComputeChangeRequest request) {
             ComputeChangeResponse response = new ComputeChangeResponse();
+            Logger logger = new Logger();
+
+            logger.CreateLog(request, "ComputeChange", "REQUEST");
 
             try {
                 // Verifica se os dados recebidos são válidos.
@@ -42,18 +47,19 @@ namespace Trocofy.Core {
 
                     change -= (uint)totalCurrentAmount;
                 }
-
                 response.ChangeDataList = changeDataList;
                 response.TotalChangeAmount = totalChangeAmount;
                 response.Success = true;
 
             }
             catch (Exception e) {
+                logger.CreateLog(e, "ComputeChange", "EXCEPTION");
                 Report report = new Report();
                 report.Message = "Ocorreu um erro: não foi possível processar sua operação.";
                 response.OperationReport.Add(report);
             }
 
+            logger.CreateLog(response, "ComputeChange", "RESPONSE");
             return response;
         }
 

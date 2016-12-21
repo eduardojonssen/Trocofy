@@ -12,7 +12,7 @@ namespace Trocofy.Core.DataContracts {
         public uint ReceivedAmount { get; set; }
         public uint ProductAmount { get; set; }
 
-        public override void Validate() {
+        protected override void Validate() {
 
             if (this.ReceivedAmount <= 0) {
                 this.AddError("ReceivedAmount", "Insira um valor maior do que zero");

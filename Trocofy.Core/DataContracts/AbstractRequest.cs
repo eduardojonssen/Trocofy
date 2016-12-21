@@ -10,8 +10,8 @@ namespace Trocofy.Core.DataContracts {
         public AbstractRequest() {
             this.ValidationReport = new List<Report>();
         }
-
-        public bool IsValid {
+        
+        internal bool IsValid {
             get {
                 this.ValidationReport.Clear();
                 this.Validate();
@@ -19,9 +19,9 @@ namespace Trocofy.Core.DataContracts {
             }
         }
 
-        public List<Report> ValidationReport { get; set; }
+        internal List<Report> ValidationReport { get; set; }
 
-        public void AddError(string field, string message) {
+        protected void AddError(string field, string message) {
 
             Report report = new Report();
 
@@ -31,6 +31,6 @@ namespace Trocofy.Core.DataContracts {
             this.ValidationReport.Add(report);
         }
 
-        public abstract void Validate();
+        protected abstract void Validate();
     }
 }
