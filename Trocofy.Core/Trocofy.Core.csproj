@@ -39,6 +39,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,7 +61,12 @@
     <Compile Include="Processors\CoinProcessor.cs" />
     <Compile Include="Processors\ProcessorFactory.cs" />
     <Compile Include="Processors\SilverProcessor.cs" />
+    <Compile Include="Services\AbstractLog.cs" />
+    <Compile Include="Services\EventViewerLogProcessor.cs" />
+    <Compile Include="Services\FileLogProcessor.cs" />
+    <Compile Include="Services\LogFactory.cs" />
     <Compile Include="Services\Logger.cs" />
+    <Compile Include="Services\LogManager.cs" />
     <Compile Include="TrocofyManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

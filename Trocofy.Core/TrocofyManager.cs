@@ -10,9 +10,8 @@ namespace Trocofy.Core {
     public class TrocofyManager {
         public ComputeChangeResponse ComputeChange(ComputeChangeRequest request) {
             ComputeChangeResponse response = new ComputeChangeResponse();
-            Logger logger = new Logger();
 
-            logger.CreateLog(request, "ComputeChange", "REQUEST");
+            Logger.Log(request);
 
             try {
                 // Verifica se os dados recebidos são válidos.
@@ -53,13 +52,13 @@ namespace Trocofy.Core {
 
             }
             catch (Exception e) {
-                logger.CreateLog(e, "ComputeChange", "EXCEPTION");
+                Logger.Log(e);
                 Report report = new Report();
                 report.Message = "Ocorreu um erro: não foi possível processar sua operação.";
                 response.OperationReport.Add(report);
             }
 
-            logger.CreateLog(response, "ComputeChange", "RESPONSE");
+            Logger.Log(response);
             return response;
         }
 
